@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "credenciais-casesIA",
+      "runtimeExecutable": "/bin/sh",
+      "runtimeArgs": ["-c", "cd \"$HOME/Projetos/wtag-credenciais-casesIA\" && exec python3 servidor.py 8771"],
+      "port": 8771
+    }
+  ]
+}

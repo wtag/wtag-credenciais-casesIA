@@ -1,0 +1,41 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Arquivo gerado — sai do index.html via `python3 gerar-review.py`.
+# Versionar os dois seria manter duas fontes de verdade que divergem em silêncio.
+index_review.html
+
+# Gerados por `python3 gerar-pdf.py`. O PDF é uma exportação, não uma fonte:
+# 16 MB de binário que muda inteiro a cada rodada não têm o que fazer no git.
+# O padrão substitui o nome fixo de propósito: quando o arquivo passou de
+# Credenciais para Concorrência, a linha antiga deixou de casar em silêncio e o
+# PDF entrou no histórico por quatro commits.
+index_pdf_*.html
+WT.AG_*.pdf
+
+# Auxiliares de conferência que eu crio e apago
+_teste-*.html
+
+# Os masters em alta NÃO entram no repositório. Ficam em
+# `_Assets/Videos-Alta/` no Drive. O que entra aqui é a versão comprimida,
+# gerada por `comprimir-videos.sh`.
+assets/video/*.original.mp4
+assets/video/_alta/
+
+# Fotos de origem das capas de cliente, como chegaram (PNG/TIF de 29 MB).
+# Mesma regra dos vídeos: master não entra no repositório. O que o deck usa é o
+# recorte 16:9 em assets/img/capas/, gerado a partir daqui.
+assets/img/capascases/
+
+# Pasta que o app cria para os arquivos que eu recebo anexados. O briefing da
+# concorrência vive aqui, e ele NÃO vai para o repositório: nomeia o concorrente
+# do anunciante, a lista de clientes recortada e as decisões ainda em aberto.
+# Já foi purgado do histórico uma vez — não deixe voltar.
+Claude outputs/
+
+# Material bruto recebido para esta versão (fotos em alta, vídeos de origem,
+# docx). O deck usa as versões tratadas em assets/.
+_Assets/
