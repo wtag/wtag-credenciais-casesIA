@@ -2158,17 +2158,20 @@ a.reperc__it:hover .reperc__ph{border-color:var(--acento,var(--laranja-wt));
      direita (679 de largura):
        linha 1 · 9:16 + 4:5 na altura 471,3 → 265,1 e 393,9 (a 4:5 corta 4%)
        linha 2 · três 9:16 → (679−40)/3 = 213 × 378,7 */
-.nucleo__logos{position:absolute;left:72px;top:150px;width:528px;z-index:5;
-  display:flex;flex-wrap:wrap;align-items:center;gap:30px 40px}
-.nucleo__logos .quebra{flex-basis:100%;height:0}
-.nucleo__logo{display:block;width:auto;object-fit:contain;opacity:.94}
-.nucleo__logo--nestle{height:34px}
-.nucleo__logo--chamyto{height:31px}
-.nucleo__logo--chambinho{height:35px}
-.nucleo__logo--chandelle{height:43px}
-.nucleo__logo--citroen{height:62px}
-.nucleo__logo--mercedes{height:54px}
-.case__col.nucleo__col{top:376px;gap:24px;cursor:default}
+/* Grade 3×2: cada logo centrado na sua coluna, então os da linha 2 ficam
+   alinhados pelo centro com os da linha 1. Tamanhos no olho: wordmarks
+   largos mais baixos, emblemas (Citroën, Mercedes) bem mais altos. */
+.nucleo__logos{position:absolute;left:72px;top:138px;width:528px;z-index:5;
+  display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:100px;gap:26px 24px;
+  justify-items:center;align-items:center}
+.nucleo__logo{display:block;width:auto;max-width:100%;object-fit:contain;opacity:.94}
+.nucleo__logo--nestle{height:35px}
+.nucleo__logo--chamyto{height:39px}
+.nucleo__logo--chambinho{height:41px}
+.nucleo__logo--chandelle{height:51px}
+.nucleo__logo--citroen{height:88px}
+.nucleo__logo--mercedes{height:86px}
+.case__col.nucleo__col{top:448px;gap:24px;cursor:default}
 .nucleo__col .case__blk p{display:block;-webkit-line-clamp:none;overflow:visible;text-wrap:pretty}
 .case.case--nucleo .case__media{left:656px;top:120px;width:1192px;height:870px;display:block}
 .case--nucleo .case__media > *{position:absolute}
