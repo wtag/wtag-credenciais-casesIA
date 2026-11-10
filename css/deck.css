@@ -2150,24 +2150,29 @@ a.reperc__it:hover .reperc__ph{border-color:var(--acento,var(--laranja-wt));
   box-shadow:3px -3px 0 -1.6px rgba(0,0,0,.55),3px -3px 0 0 currentColor}
 
 /* ── Núcleo de Marcas · logos no topo, conteúdos de ponta a ponta ────────────
-   Sete peças em 72→1848 (1776): seis 9:16 e uma 4:5 na mesma altura h:
-     6×0,5625h + 0,8h + 6×20 = 1776 → h = 396,6 → 223,1 e 317,3 de largura.
-   O texto (literal do doc) vai em três colunas abaixo. */
-.nucleo__logos{position:absolute;left:72px;top:132px;width:1776px;height:84px;z-index:5;
-  display:flex;align-items:center;justify-content:center;gap:64px}
-.nucleo__logo{display:block;height:46px;width:auto;object-fit:contain;opacity:.94}
-.nucleo__logo--nestle{height:58px}
-.nucleo__logo--chamyto{height:40px}
-.nucleo__logo--chambinho{height:46px}
+   O texto (literal do doc) vai em três colunas abaixo. Fundo mais escuro que
+   o padrão de case: os conteúdos são coloridos e o fundo competia com eles. */
+.nucleo__logos{position:absolute;left:72px;top:124px;width:1776px;height:92px;z-index:5;
+  display:flex;align-items:center;justify-content:center;gap:72px}
+/* Equalização ÓPTICA: wordmarks largos precisam de menos altura que emblemas
+   quadrados. Ponto de partida foi a área de tinta (fração × largura × altura)
+   igual para todos; nos emblemas (Citroën, Mercedes) isso pedia 105–127 de
+   altura, então a régua foi amaciada até os seis pesarem o mesmo no olho. */
+.nucleo__logo{display:block;width:auto;object-fit:contain;opacity:.94}
+.nucleo__logo--nestle{height:42px}
+.nucleo__logo--chamyto{height:39px}
+.nucleo__logo--chambinho{height:44px}
 .nucleo__logo--chandelle{height:54px}
-.nucleo__logo--citroen{height:60px}
-.nucleo__logo--mercedes{height:64px}
-.nucleo__logo--tena{height:44px}
-.case.case--nucleo .case__media{left:72px;top:256px;width:1776px;height:397px;
+.nucleo__logo--citroen{height:78px}
+.nucleo__logo--mercedes{height:68px}
+/* Seis peças em 72→1848 (1776): cinco 9:16 e uma 4:5 na mesma altura h:
+     5×0,5625h + 0,8h + 5×20 = 1776 → h = 463,9 → 260,9 e 371,1 de largura. */
+.case.case--nucleo .case__media{left:72px;top:244px;width:1776px;height:464px;
   flex-direction:row;gap:20px}
-.case--nucleo .nucleo__media > .case__img{flex:none;width:223.1px;height:396.6px;border-radius:22px;--r:22px}
-.case--nucleo .nucleo__media > .case__img:nth-child(6){width:317.3px}
-.case__col.nucleo__col{left:72px;top:716px;width:1776px;flex-direction:row;gap:56px;cursor:default}
+.case--nucleo .nucleo__media > .case__img{flex:none;width:260.9px;height:463.9px;border-radius:24px;--r:24px}
+.case--nucleo .nucleo__media > .case__img:nth-child(6){width:371.1px}
+.case--nucleo .case__fundo img{filter:blur(2px) brightness(.5)}
+.case__col.nucleo__col{left:72px;top:768px;width:1776px;flex-direction:row;gap:56px;cursor:default}
 .nucleo__col .case__blk{flex:1 1 0;min-width:0}
 .nucleo__col .case__blk p{font-size:15px;line-height:1.6;display:block;-webkit-line-clamp:none;overflow:visible;text-wrap:pretty}
 
