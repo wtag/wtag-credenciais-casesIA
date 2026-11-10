@@ -2149,32 +2149,37 @@ a.reperc__it:hover .reperc__ph{border-color:var(--acento,var(--laranja-wt));
 .case__qtd::before{content:"";width:11px;height:11px;border:1.6px solid currentColor;border-radius:2px;
   box-shadow:3px -3px 0 -1.6px rgba(0,0,0,.55),3px -3px 0 0 currentColor}
 
-/* ── Núcleo de Marcas · logos no topo, conteúdos de ponta a ponta ────────────
-   O texto (literal do doc) vai em três colunas abaixo. Fundo mais escuro que
-   o padrão de case: os conteúdos são coloridos e o fundo competia com eles. */
-.nucleo__logos{position:absolute;left:72px;top:124px;width:1776px;height:92px;z-index:5;
-  display:flex;align-items:center;justify-content:center;gap:72px}
-/* Equalização ÓPTICA: wordmarks largos precisam de menos altura que emblemas
-   quadrados. Ponto de partida foi a área de tinta (fração × largura × altura)
-   igual para todos; nos emblemas (Citroën, Mercedes) isso pedia 105–127 de
-   altura, então a régua foi amaciada até os seis pesarem o mesmo no olho. */
+/* ── Núcleo de Marcas · estrutura padrão de case ─────────────────────────────
+   Logos das marcas no lugar do selo, em duas linhas; texto literal do doc na
+   coluna da esquerda (inteiro, sem resumo — por isso começa mais alto que o
+   padrão e sem o clamp de 4 linhas). Fundo mais escuro que o padrão.
+   Mídia nos 1192 de 656→1848 × 870 de 120→990, sem régua de números:
+     herói 9:16 · 489,4 × 870
+     direita (679 de largura):
+       linha 1 · 9:16 + 4:5 na altura 471,3 → 265,1 e 393,9 (a 4:5 corta 4%)
+       linha 2 · três 9:16 → (679−40)/3 = 213 × 378,7 */
+.nucleo__logos{position:absolute;left:72px;top:150px;width:528px;z-index:5;
+  display:flex;flex-wrap:wrap;align-items:center;gap:30px 40px}
+.nucleo__logos .quebra{flex-basis:100%;height:0}
 .nucleo__logo{display:block;width:auto;object-fit:contain;opacity:.94}
-.nucleo__logo--nestle{height:42px}
-.nucleo__logo--chamyto{height:39px}
-.nucleo__logo--chambinho{height:44px}
-.nucleo__logo--chandelle{height:54px}
-.nucleo__logo--citroen{height:78px}
-.nucleo__logo--mercedes{height:68px}
-/* Seis peças em 72→1848 (1776): cinco 9:16 e uma 4:5 na mesma altura h:
-     5×0,5625h + 0,8h + 5×20 = 1776 → h = 463,9 → 260,9 e 371,1 de largura. */
-.case.case--nucleo .case__media{left:72px;top:244px;width:1776px;height:464px;
-  flex-direction:row;gap:20px}
-.case--nucleo .nucleo__media > .case__img{flex:none;width:260.9px;height:463.9px;border-radius:24px;--r:24px}
-.case--nucleo .nucleo__media > .case__img:nth-child(6){width:371.1px}
+.nucleo__logo--nestle{height:34px}
+.nucleo__logo--chamyto{height:31px}
+.nucleo__logo--chambinho{height:35px}
+.nucleo__logo--chandelle{height:43px}
+.nucleo__logo--citroen{height:62px}
+.nucleo__logo--mercedes{height:54px}
+.case__col.nucleo__col{top:376px;gap:24px;cursor:default}
+.nucleo__col .case__blk p{display:block;-webkit-line-clamp:none;overflow:visible;text-wrap:pretty}
+.case.case--nucleo .case__media{left:656px;top:120px;width:1192px;height:870px;display:block}
+.case--nucleo .case__media > *{position:absolute}
+.case--nucleo .case__media > .case__video{left:0;top:0;width:489.4px;height:870px}
+.case--nucleo .case__media > .case__img{border-radius:24px;--r:24px}
+.case--nucleo .case__media > :nth-child(2){left:513px;top:0;width:265.1px;height:471.3px}
+.case--nucleo .case__media > :nth-child(3){left:798.1px;top:0;width:393.9px;height:471.3px}
+.case--nucleo .case__media > :nth-child(4){left:513px;top:491.3px;width:213px;height:378.7px}
+.case--nucleo .case__media > :nth-child(5){left:746px;top:491.3px;width:213px;height:378.7px}
+.case--nucleo .case__media > :nth-child(6){left:979px;top:491.3px;width:213px;height:378.7px}
 .case--nucleo .case__fundo img{filter:blur(2px) brightness(.5)}
-.case__col.nucleo__col{left:72px;top:768px;width:1776px;flex-direction:row;gap:56px;cursor:default}
-.nucleo__col .case__blk{flex:1 1 0;min-width:0}
-.nucleo__col .case__blk p{font-size:15px;line-height:1.6;display:block;-webkit-line-clamp:none;overflow:visible;text-wrap:pretty}
 
 /* ── lightbox · galeria dos carrosséis ─────────────────────────────────────── */
 #lb .lb__seta,#lb .lb__cont{display:none}
@@ -2190,7 +2195,9 @@ a.reperc__it:hover .reperc__ph{border-color:var(--acento,var(--laranja-wt));
 #lb.is-galeria .lb__cont{display:block;position:absolute;right:56px;bottom:44px;z-index:4;
   font-family:var(--font-sans);font-weight:500;font-size:13px;letter-spacing:.08em;color:var(--creme-wt)}
 
-/* fundo de case em vídeo (Famosa): mesmo tratamento da foto de fundo, sem a
-   deriva — o próprio vídeo já é o movimento */
+/* fundo de case em vídeo (Famosa): o vídeo já vem em câmera lenta (2,5×,
+   interpolado no encode). Desfoque mais forte que o das fotos de fundo para o
+   movimento virar textura; o scale esconde a borda clara que o blur cria. */
 .case__fundo-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  transform:scale(1.06);filter:blur(2px) brightness(.72)}
+  transform:scale(1.14);filter:blur(9px) brightness(.72)}
+.case--mural .case__fundo img{filter:blur(9px) brightness(.72)}

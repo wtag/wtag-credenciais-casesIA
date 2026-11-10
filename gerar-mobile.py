@@ -183,6 +183,13 @@ def extrair(html):
             # entram como minis em pé, sem herói repetido.
             if 'class="case__video"' not in lim:
                 d['case']['video'] = ''; d['case']['poster'] = ''; d['case']['vert'] = True
+            # Núcleo: herói vertical — no celular entra como primeiro mini em pé,
+            # em vez de ser cortado no quadro 16:9 do herói padrão.
+            elif 'case--nucleo' in b[:400]:
+                hv = um(r'class="case__video"[^>]*data-video="([^"]+)"', lim)
+                hp = um(r'class="case__video"[^>]*data-poster="([^"]+)"', lim)
+                d['case']['minis'].insert(0, {'img': hp, 'video': hv, 'yt': '', 'leg': '', 'full': ''})
+                d['case']['video'] = ''; d['case']['poster'] = ''; d['case']['vert'] = True
 
         # ── showreel e encerramento ──
         d['showreel'] = um(r'class="s14__video"[^>]*src="([^"]+)"', lim) or um(r'showreel[^"]*\.mp4', lim)
