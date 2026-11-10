@@ -10,25 +10,28 @@ push aqui nunca mexe no `wtag-credenciais-v2`.
 
 ## Primeira publicação
 
-1. No GitHub, organização **wtag**, criar o repositório **vazio**
-   `wtag-credenciais-casesIA` (sem README, sem `.gitignore`, sem licença).
-   Visibilidade: a mesma da v2 (Pages em repo privado exige plano pago).
-2. Abrir o **GitHub Desktop** → *File → Add Local Repository…* → escolher
-   `~/Projetos/wtag-credenciais-casesIA`.
-3. Conferir o commit inicial e clicar **Publish repository** (organização
-   `wtag`, mesmo nome). Ou, pelo terminal, se o Desktop já autenticou:
+O repositório `wtag/wtag-credenciais-casesIA` **já foi criado** no GitHub (vazio).
+Por isso o botão *Publish repository* do GitHub Desktop dá erro ("name already
+exists"): ele tenta criar o repositório de novo. O caminho é só ligar a pasta a
+ele e enviar:
+
+1. Ligar a pasta ao repositório (uma vez só):
 
    ```bash
-   cd ~/Projetos/wtag-credenciais-casesIA
-   git remote add origin https://github.com/wtag/wtag-credenciais-casesIA.git
-   git push -u origin main
+   cd ~/Projetos/wtag-credenciais-casesIA && git remote add origin https://github.com/wtag/wtag-credenciais-casesIA.git
    ```
 
-4. No repositório: **Settings → Pages** · Source `Deploy from a branch` ·
-   Branch `main` · pasta `/ (root)` · Save.
-5. Em 1–2 minutos o deck está em
-   `https://wtag.github.io/wtag-credenciais-casesIA/`
-   e a versão de celular em `.../mobile.html`.
+2. No GitHub Desktop, o botão do topo vira **Publish branch** / **Push origin**:
+   clicar. O envio usa o login do Desktop.
+3. No repositório: **Settings → Pages** · `Deploy from a branch` · `main` ·
+   `/ (root)` · Save.
+4. Em 1–2 minutos: `https://wtag.github.io/wtag-credenciais-casesIA/`
+   (celular: `.../mobile.html`).
+
+**Regra para as próximas versões** — escolha UM dos dois caminhos, nunca os dois:
+- **Sem criar nada no GitHub antes:** Desktop → *Add Local Repository* →
+  *Publish repository* (escolhendo a organização `wtag`). Ele cria e envia.
+- **Ou** criar o repositório vazio no GitHub e seguir os passos 1–3 acima.
 
 ## Depois de mexer no conteúdo
 
