@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>WT.AG — Credenciais 2026</title>
 <meta name="description" content="Credenciais WT.AG 2026 — Social First Agency. Apresentação de slides.">
-<link rel="stylesheet" href="css/deck.css?v=309">
+<link rel="stylesheet" href="css/deck.css?v=310">
 </head>
 <body>
 
@@ -1519,6 +1519,14 @@
 </div><!-- /#stage -->
 
 <!-- ─────────────────────────────────────────────────────────── UI -->
+<!-- Bordas de navegação: cobrem a faixa preta lateral (quando a janela é mais
+     larga que 16:9) e a margem do slide. Nos cases quase tudo perto da borda é
+     clicável (texto abre o painel, mídia abre o player), e quem clicava na
+     borda para voltar abria o "Texto completo" sem querer. Aqui o clique
+     SEMPRE navega. -->
+<button class="borda borda--ant" type="button" aria-label="Slide anterior"><span></span></button>
+<button class="borda borda--prox" type="button" aria-label="Próximo slide"><span></span></button>
+
 <div id="ui" class="ui--escuro">
   <div class="hud">
     <span class="hud__n">01 / 26</span>
@@ -1620,8 +1628,8 @@
 
 </div><!-- /#viewport -->
 
-<script src="js/deck.js?v=309"></script>
-<script src="js/i18n-dic.js?v=309"></script>
-<script src="js/i18n.js?v=309"></script>
+<script src="js/deck.js?v=310"></script>
+<script src="js/i18n-dic.js?v=310"></script>
+<script src="js/i18n.js?v=310"></script>
 </body>
 </html>

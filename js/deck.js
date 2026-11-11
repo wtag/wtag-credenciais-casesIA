@@ -44,6 +44,7 @@
   function escalar() {
     var s = Math.min(window.innerWidth / W, window.innerHeight / H);
     stage.style.setProperty('--escala', s);
+    viewport.style.setProperty('--escala', s);   // as .borda medem a faixa lateral com ela
   }
   window.addEventListener('resize', escalar);
   /* No celular o `resize` não é suficiente. Girar o aparelho dispara
@@ -588,6 +589,7 @@
     proximo.classList.remove('is-entering');
 
     atual = i;
+    atualizarBordas();
     hoverLiberado = false;          // trava o hover até o próximo movimento real
     trocarFundo(proximo, true);
     atualizarUI();
@@ -610,6 +612,15 @@
     }
   }
   function proximo() { if (atual < slides.length - 1) irPara(atual + 1, 1); }
+  /* bordas: clique sempre navega; no primeiro/último slide a borda sem destino some */
+  var bordaAnt = document.querySelector('.borda--ant');
+  var bordaProx = document.querySelector('.borda--prox');
+  function atualizarBordas() {
+    if (bordaAnt) bordaAnt.classList.toggle('is-off', atual === 0);
+    if (bordaProx) bordaProx.classList.toggle('is-off', atual === slides.length - 1);
+  }
+  if (bordaAnt) bordaAnt.addEventListener('click', function (e) { e.stopPropagation(); anterior(); this.blur(); });
+  if (bordaProx) bordaProx.addEventListener('click', function (e) { e.stopPropagation(); proximo(); this.blur(); });
   function anterior() { if (atual > 0) irPara(atual - 1, -1); }
   function pad(n) { return (n < 10 ? '0' : '') + n; }
 
@@ -1104,6 +1115,10 @@
     }
     if (txtpanel.classList.contains('is-open')) {
       if (k === 'Escape') { e.preventDefault(); fecharTexto(); }
+      /* ← → fecham o painel e já trocam de slide: com o painel aberto as setas
+         não faziam nada, e parecia que o teclado tinha parado de funcionar. */
+      if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown') { e.preventDefault(); fecharTexto(); proximo(); }
+      if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp') { e.preventDefault(); fecharTexto(); anterior(); }
       return;
     }
     if (sumario.classList.contains('is-open')) {
@@ -1417,6 +1432,7 @@
     slides[inicial].classList.add('is-active');
     trocarFundo(slides[inicial], false);
     atualizarUI();
+    atualizarBordas();
     prepararSlide(slides[inicial]);
     requestAnimationFrame(function () {
       requestAnimationFrame(function () { tocarEntrada(slides[inicial]); });
